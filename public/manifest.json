@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Envveil — Web Environment Marker",
+  "description": "为指定网站添加环境水印。",
+  "version": "0.1.0",
+  "action": {
+    "default_title": "Envveil",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting",
+    "webNavigation"
+  ],
+  "optional_host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ]
+}

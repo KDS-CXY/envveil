@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Envveil</title>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div class="brand-mark" aria-hidden="true">E</div>
+        <div class="brand-copy">
+          <h1>Envveil</h1>
+          <p>Web Environment Marker</p>
+        </div>
+        <span class="local-label">本地配置</span>
+      </header>
+
+      <section class="site-section" aria-labelledby="site-heading">
+        <div class="section-heading">
+          <div>
+            <h2 id="site-heading">网站规则</h2>
+            <p id="active-site">正在读取当前网站…</p>
+          </div>
+          <button id="add-current" class="button button-primary" type="button">添加当前网站</button>
+        </div>
+        <div class="domain-entry">
+          <label class="visually-hidden" for="domain-input">域名</label>
+          <input id="domain-input" type="text" placeholder="example.com" autocomplete="off" />
+          <button id="add-domain" class="button button-secondary" type="button">添加域名</button>
+        </div>
+        <div id="domain-list" class="domain-list" aria-label="已配置网站"></div>
+      </section>
+
+      <section id="rule-editor" class="editor-section" aria-labelledby="editor-heading" hidden>
+        <div class="section-heading editor-heading">
+          <div>
+            <h2 id="editor-heading">水印样式</h2>
+            <p id="permission-status">选择一个网站规则进行编辑</p>
+          </div>
+          <div class="editor-actions">
+            <button id="grant-permission" class="button button-secondary button-small" type="button" hidden>重新授权</button>
+            <label class="switch-control" title="启用或停用此网站水印">
+              <input id="rule-enabled" type="checkbox" />
+              <span class="switch-track" aria-hidden="true"></span>
+              <span class="visually-hidden">启用水印</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <label class="field field-wide">
+            <span>水印文字</span>
+            <input id="watermark-text" type="text" maxlength="80" placeholder="例如：测试环境" />
+          </label>
+
+          <fieldset class="field field-wide mode-fieldset">
+            <legend>显示方式</legend>
+            <div class="mode-grid">
+              <label class="mode-option"><input type="radio" name="mode" value="tile" /><span>平铺</span></label>
+              <label class="mode-option"><input type="radio" name="mode" value="top-center" /><span>顶部居中</span></label>
+              <label class="mode-option"><input type="radio" name="mode" value="top-right" /><span>右上</span></label>
+              <label class="mode-option"><input type="radio" name="mode" value="bottom-right" /><span>右下</span></label>
+              <label class="mode-option"><input type="radio" name="mode" value="bottom-left" /><span>左下</span></label>
+              <label class="mode-option"><input type="radio" name="mode" value="top-left" /><span>左上</span></label>
+              <label class="mode-option"><input type="radio" name="mode" value="bottom-center" /><span>底部居中</span></label>
+            </div>
+          </fieldset>
+
+          <label class="field">
+            <span>文字颜色</span>
+            <input id="watermark-color" class="color-input" type="color" />
+          </label>
+          <label class="field">
+            <span>透明度 <output id="opacity-output"></output></span>
+            <input id="watermark-opacity" type="range" min="5" max="100" step="1" />
+          </label>
+
+          <div id="fixed-options" class="option-grid field-wide">
+            <label class="field">
+              <span>字号 <small>px</small></span>
+              <input id="fixed-font-size" type="number" min="8" max="96" step="1" />
+            </label>
+            <label class="field">
+              <span>边距 <small>px</small></span>
+              <input id="fixed-margin" type="number" min="0" max="240" step="1" />
+            </label>
+          </div>
+
+          <div id="tile-options" class="option-grid field-wide" hidden>
+            <label class="field">
+              <span>字号 <small>px</small></span>
+              <input id="tile-font-size" type="number" min="8" max="96" step="1" />
+            </label>
+            <label class="field">
+              <span>每行列数</span>
+              <input id="tile-columns" type="number" min="1" max="12" step="1" />
+            </label>
+            <label class="field">
+              <span>旋转角度 <small>°</small></span>
+              <input id="tile-rotation" type="number" min="-90" max="90" step="1" />
+            </label>
+            <label class="field">
+              <span>行间距 <small>px</small></span>
+              <input id="tile-row-gap" type="number" min="0" max="600" step="1" />
+            </label>
+          </div>
+        </div>
+
+        <footer class="editor-footer">
+          <button id="remove-rule" class="button button-danger" type="button">删除规则</button>
+          <span id="save-status" role="status" aria-live="polite"></span>
+        </footer>
+      </section>
+
+      <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+    </main>
+    <script type="module" src="/src/popup.ts"></script>
+  </body>
+</html>

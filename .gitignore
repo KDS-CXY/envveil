@@ -1,0 +1,22 @@
+# Dependencies and build output
+node_modules/
+dist/
+coverage/
+
+# Local environment
+.env*
+!.env.example
+
+# Browser extension packages and generated artifacts
+web-ext-artifacts/
+*.crx
+*.zip
+
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Local technical design document; keep the document out of Git
+/docs/TECHNICAL_DESIGN.md
