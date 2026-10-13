@@ -1,0 +1,16 @@
+{
+  "name": "envveil",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Envveil — Web Environment Marker",
+  "type": "module",
+  "scripts": {
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.268",
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.7"
+  }
+}
